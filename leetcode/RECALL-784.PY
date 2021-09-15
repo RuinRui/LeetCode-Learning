@@ -6,7 +6,6 @@
 @Author  :   Abel
 '''
 from typing import List
-import functools
 
 
 class Solution:
@@ -21,19 +20,14 @@ class Solution:
 
         if len(path) == len(s):
             result.append(path[:])
-            path = ''
             return
 
-        # print(lower, index, path, result)
         if index < len(s) - 1:
             if s[index + 1].isdigit():
                 self.backtracking(s, True, index + 1, path, result)
             else:
-                print('===', lower, index, path, result)
                 self.backtracking(s, True, index + 1, path, result)
-                print('-=-', lower, index, path, result)
                 self.backtracking(s, False, index + 1, path, result)
-                print('---', lower, index, path, result)
 
         return result
 
