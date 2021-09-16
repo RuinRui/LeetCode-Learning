@@ -21,7 +21,7 @@ deleteAtIndex(index)：如果索引 index 有效，则删除链表中的第 in
 '''
 
 
-class LinkNode:
+class ListNode:
     def __init__(self, val=0, next=None) -> None:
         self.val = val
         self.next = next
@@ -33,7 +33,7 @@ class MyLinkedList:
         """
         Initialize your data structure here.
         """
-        self.dummy_head = LinkNode()
+        self.dummy_head = ListNode()
         self.size = 0
 
     def get(self, index: int) -> int:
@@ -55,7 +55,7 @@ class MyLinkedList:
         """
         Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
         """
-        new_head = LinkNode(val)
+        new_head = ListNode(val)
         if self.dummy_head.next:
             new_head.next = self.dummy_head.next
 
@@ -70,7 +70,7 @@ class MyLinkedList:
         while head.next:
             head = head.next
 
-        tail = LinkNode(val)
+        tail = ListNode(val)
         head.next = tail
         self.size += 1
 
@@ -87,11 +87,11 @@ class MyLinkedList:
             head = head.next
             i += 1
 
-        insert = LinkNode(val)
+        insert = ListNode(val)
         if i > index:
             return
 
-        insert = LinkNode(val)
+        insert = ListNode(val)
         insert.next = head.next
         head.next = insert
 

@@ -6,6 +6,10 @@
 @Author  :   Abel
 
 给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val == val 的节点，并返回 新的头节点 。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 '''
 
 
