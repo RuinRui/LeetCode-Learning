@@ -78,8 +78,6 @@ class Solution:
         max_x, max_y = len(grid), len(grid[0])
         que = collections.deque([(0, 0)])
 
-        [0, 1],
-        [1, 0]
         if grid[0][0] == 1:
             has_land = True
             max_land_area = 1
