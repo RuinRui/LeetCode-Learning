@@ -51,5 +51,6 @@ class Solution:
 if __name__ == '__main__':
     lists = [30, 24, 5, 58, 18, 36, 12, 42, 39]
     s = Solution()
-    s.quick_sort_ite(lists, 0, len(lists) - 1)
+    # s.quick_sort_ite(lists, 0, len(lists) - 1)
+    s.quick_sort_stack(lists, 0, len(lists) - 1)
     print(lists)
