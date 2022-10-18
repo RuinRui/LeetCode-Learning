@@ -45,8 +45,10 @@ class Solution:
                 return i - j + 1
 
         return -1
-
+    # 前缀: 第一个字符开始不包含最后一个字符的子串
+    # 后缀: 第二个字符开始包含最后一个字符的子串，两者相同为最长相等前缀
     # 得到前缀表，aabaaf的可以表示为[0, 1, 0, 1, 2, 0], 每一位表示str[:i]有多大长度的相同前缀后缀, 记住回到的是前缀，所以这里长度=位置，查找的时候要回到位置的下一位继续进行匹配
+
     def getNext(self, s: str) -> list:
         j, next = 0, [0 for i in s]  # j同时代表下标也代表最大相等子串长度，所以[0, j]代表的是最大相等前后缀的前缀
         next[0] = j
@@ -73,4 +75,6 @@ if __name__ == '__main__':
     result = s.strStr("hello", "ll")
     print(result)
     result = s.strStr("aaaaa", "")
+    print(result)
+    result = s.getNext("aaa")
     print(result)
