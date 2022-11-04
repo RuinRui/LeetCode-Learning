@@ -31,7 +31,7 @@ class Solution:
             while j > 0 and s[j] != s[i]:
                 j = next[j - 1]
 
-            if s[i] == s[j]:
+            if s[j] == s[i]:
                 j += 1
 
             next[i] = j

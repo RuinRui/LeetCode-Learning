@@ -24,7 +24,7 @@ class Solution:
             path.append(str(node.val))
             # 记录进入左节点时的路径的长度，这样回溯时在进入右边就可以得到进入之前的在中间节点是的path路径, 右边再回来就不用回溯了，因为记录了中间节点的路径
             length = len(path)
-            # 只有当左右节点都为空时，这条路径才结束
+            # 只有找到叶子节点时，这条路径才结束
             if not node.right and not node.left:
                 result.append("->".join(path))
                 return
