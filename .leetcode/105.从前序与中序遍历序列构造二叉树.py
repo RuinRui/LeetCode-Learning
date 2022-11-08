@@ -1,7 +1,7 @@
 #
-# @lc app=leetcode.cn id=106 lang=python3
+# @lc app=leetcode.cn id=105 lang=python3
 #
-# [106] 从中序与后序遍历序列构造二叉树
+# [105] 从前序与中序遍历序列构造二叉树
 #
 
 # @lc code=start
@@ -17,26 +17,27 @@ class TreeNode:
 
 
 class Solution:
-    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
-        # 如果为空数组，则为空节点
-        if len(inorder) == 0:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        if len(preorder) == 0:
             return None
-        # 取后序遍历(左右中)的最后一个节点作为分割点，这个点就是中间节点
-        center = postorder[-1]
+        # 前序的第一个节点必定是中间节点
+        center = preorder[0]
         node = TreeNode(center)
-        if len(inorder) == 1:
+        if len(preorder) == 1:
             return node
-        # 把前序遍历分割成左右数组
+
+        # 把中序遍历用中间节点分开，同106题
         index = inorder.index(center)
         leftInorder = inorder[:index]
         rightInorder = inorder[index + 1:]
-        # 把后续遍历分割成左右数组
+        # 同样拆分前序遍历
         length = len(leftInorder)
-        leftPostorder = postorder[:length]
-        rightPostorder = postorder[length:-1]
+        leftPreorder = preorder[1:1+length]
+        rightPreorder = preorder[1+length:]
 
-        node.left = self.buildTree(leftInorder, leftPostorder)
-        node.right = self.buildTree(rightInorder, rightPostorder)
+        node.left = self.buildTree(leftPreorder, leftInorder)
+        node.right = self.buildTree(rightPreorder, rightInorder)
+
         return node
 
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
@@ -59,6 +60,6 @@ class Solution:
 # @lc code=end
 if __name__ == '__main__':
     s = Solution()
-    result = s.buildTree([9, 3, 15, 20, 7], [9, 15, 7, 20, 3])
+    result = s.buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])
     result = s.preorderTraversal(result)
     print('result >>> ', result)
