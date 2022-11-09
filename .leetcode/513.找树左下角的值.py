@@ -24,7 +24,7 @@ class Solution:
 
         def leftLeavesNum(node: Optional[TreeNode], depth: int):
             if not node.left and not node.right:  # 叶子节点
-                if self.maxDepth < depth:  # 注意这里一定要是<,因为我们按照的是中左右的顺序，左在右前面遍历到，如果左右节点是一个深度，<=的话会取到右边节点的值
+                if self.maxDepth < depth:  # 注意这里一定要是<,因为我们按照的是中左右的顺序，左在右前面遍历到，如果左右节点是一个深度，<=的话可能会取到右边节点的值
                     self.maxDepth, self.result = depth, node.val
                 return
 

@@ -37,6 +37,7 @@ class Solution:
                             left += 1
                         while right > left and nums[right - 1] == nums[right]:
                             right -= 1
+                        # 因为上面是left + 1 != left才出来的，若依这里left要+1，right要-1
                         left += 1
                         right -= 1
                     elif a + b + c + d > target:

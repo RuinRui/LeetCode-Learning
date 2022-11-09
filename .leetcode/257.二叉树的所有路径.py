@@ -31,10 +31,12 @@ class Solution:
 
             if node.left:  # 为了判断not right and not left，所以这里要判断为非空才进入
                 getTreePath(node.left, result, path)
+                # 回溯，为了进入右侧
                 path = path[:length]
 
             if node.right:
                 getTreePath(node.right, result, path)
+                # 这里不用回溯了
 
         result, path = [], []
         getTreePath(root, result, path)
