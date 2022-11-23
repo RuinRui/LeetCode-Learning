@@ -16,7 +16,30 @@ class TreeNode:
         self.right = right
 
 
-class Solution:  # 中序遍历正好可以解决，左中右的顺序遍历，左永远小于中，中永远小于右，二叉搜索树的中序遍历就是一个有序队列
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        que, result = [], []
+        cur = root
+        while que or cur:
+            if cur:
+                que.append(cur)
+                cur = cur.left
+            else:
+                node = que.pop()
+                result.append(node.val)
+                cur = node.right
+
+        print("result == ", result)
+        tmp = result[0]
+        for i in range(1, len(result)):
+            if tmp > result[i]:
+                return False
+            tmp = result[i]
+
+        return True
+
+
+class Solution1:  # 中序遍历就是一个有序队列，左中右的顺序遍历，左永远小于中，中永远小于右
     def __init__(self) -> None:
         self.maxValue = -2**32
 
